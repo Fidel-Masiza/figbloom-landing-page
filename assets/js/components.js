@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
     floatingButtons.innerHTML = `
         <!-- WhatsApp Button -->
         <a
-            href="https://wa.me/25496286676"
+            href="https://wa.me/254796286676"
             target="_blank"
             rel="noopener noreferrer"
             class="floating-whatsapp"
