@@ -138,101 +138,139 @@
 
 
 
-/* GIF layer sits behind everything, ignores clicks, never blocks text */
+
+/* ==========================================================
+   HERO BACKGROUND GIFS
+   ========================================================== */
+
 .hero-gifs {
     position: absolute;
     inset: 0;
-    z-index: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
     overflow: hidden;
+    z-index: 0;
 }
 
-/* Make sure the actual content sits above the gif layer */
-.hero-gifs + div {
+.hero-gif {
+    position: absolute;
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    opacity: 0.18;
+    object-fit: contain;
+    user-select: none;
+
+    transform: scale(0.7);   /* 70% of current size */
+    transform-origin: center center;
+}
+
+
+
+/* Keep hero text above the GIFs */
+.pt-14.lg\:pt-16 {
+    position: relative;
+}
+
+.pt-14.lg\:pt-16 .container {
     position: relative;
     z-index: 2;
 }
 
-/* Shared gif styling */
-.hero-gif {
-    position: absolute;
-    width: 140px;
-    height: auto;
-    opacity: 0.28;
-    filter: grayscale(15%);
-    object-fit: contain;
-}
+/* ==========================================================
+   LARGE SCREENS (1024px+)
+   Show all 4 GIFs
+   ========================================================== */
 
-/* Pushed up near the top of the section, spread across both
-   horizontal sides and staggered vertically (not tied to container height) */
-.hero-gif-1 {           /* top-left, highest */
-    top: 2vh;
-    left: 3%;
-}
+@media (min-width: 1024px) {
 
-.hero-gif-2 {           /* top-right, highest */
-    top: 2vh;
-    right: 3%;
-}
-
-.hero-gif-3 {           /* left, slightly lower */
-    top: 20vh;
-    left: 12%;
-}
-
-.hero-gif-4 {           /* right, slightly lower */
-    top: 16vh;
-    right: 12%;
-}
-
-/* Tablets: smaller, tighten horizontal spread and vertical stagger */
-@media (max-width: 1024px) {
-    .hero-gif {
-        width: 100px;
-        opacity: 0.25;
+    .hero-gif-1{
+        top:8%;
+        left:10%;
+        max-width:190px;
     }
 
-    .hero-gif-1,
-    .hero-gif-2 {
-        top: 1.5vh;
+    .hero-gif-2{
+        top:10%;
+        right:10%;
+        max-width:190px;
     }
 
-    .hero-gif-3 {
-        top: 30vh;
-        left: 8%;
+    .hero-gif-3{
+        bottom:14%;
+        left:15%;
+        max-width:220px;
     }
 
-    .hero-gif-4 {
-        top: 30vh;
-        right: 8%;
+    .hero-gif-4{
+        bottom:12%;
+        right:14%;
+        max-width:200px;
     }
+
 }
 
-/* Small/medium screens: keep 2 gifs, pushed close to the top,
-   small enough to stay clear of the heading and paragraph */
-@media (max-width: 640px) {
-    .hero-gif {
-        width: 70px;
-        opacity: 0.18;
+/* ==========================================================
+   MEDIUM SCREENS (768px - 1023px)
+   Show all 4 GIFs closer to the heading
+   ========================================================== */
+
+@media (min-width:768px) and (max-width:1023px){
+
+    .hero-gif{
+        max-width:170px;
     }
 
-    .hero-gif-1 {
-        top: 0.5vh;
-        left: 2%;
+    .hero-gif-1{
+        top:6%;
+        left:3%;
     }
 
-    .hero-gif-2 {
-        top: 0.5vh;
-        right: 2%;
+    .hero-gif-2{
+        top:8%;
+        right:3%;
+    }
+
+    .hero-gif-3{
+        bottom:18%;
+        left:6%;
+    }
+
+    .hero-gif-4{
+        bottom:18%;
+        right:6%;
+    }
+
+}
+
+/* ==========================================================
+   SMALL SCREENS (Below 768px)
+   Show only two GIFs
+   ========================================================== */
+
+@media (max-width:767px){
+
+    .hero-gif{
+        max-width:135px;
     }
 
     .hero-gif-3,
-    .hero-gif-4 {
-        display: none;
+    .hero-gif-4{
+        display:none;
     }
+
+    .hero-gif-1{
+        top:4%;
+        left:-10px;
+    }
+
+    .hero-gif-2{
+        bottom:40%;
+        right:-10px;
+    }
+
 }
-
-
 
 
 @layer base {
@@ -2416,7 +2454,6 @@
 
     .grow {
         flex-grow: 1;
-        padding-top: var(--header-height);
 
 
     }

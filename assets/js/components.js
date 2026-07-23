@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
     floatingButtons.innerHTML = `
         <!-- WhatsApp Button -->
         <a
-            href="https://wa.me/254796287492"
+            href="https://wa.me/25496286676"
             target="_blank"
             rel="noopener noreferrer"
             class="floating-whatsapp"
@@ -307,8 +307,8 @@ floatingButtonStyles.innerHTML = `
         }
 
         .floating-whatsapp img {
-            width: 25px;
-            height: 25px;
+            width: 40px;
+            height: 40px;
         }
 
         .floating-scroll-top img {
@@ -320,18 +320,3 @@ floatingButtonStyles.innerHTML = `
 
 document.head.appendChild(floatingButtonStyles);
 
-//navbar height
-
-function setHeaderHeight() {
-    const header = document.querySelector("header");
-
-    if (header) {
-        document.documentElement.style.setProperty(
-            "--header-height",
-            header.offsetHeight + "px"
-        );
-    }
-}
-
-document.addEventListener("DOMContentLoaded", setHeaderHeight);
-window.addEventListener("resize", setHeaderHeight);
